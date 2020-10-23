@@ -1,4 +1,5 @@
-import React from "react";
+import Axios from "axios";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Card,
@@ -16,14 +17,25 @@ import {
   useParams,
 } from "react-router-dom";
 import Rating from "../components/Rating";
-import products from "../products";
 
 const ProductScreen = (props) => {
   let { id } = useParams();
-  const product = products.find((p) => p._id.toString() === id.toString());
+
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await Axios.get(`/api/products/${id}`);
+
+      setProduct(data);
+    };
+    fetchProduct();
+  }, []);
+
+  // const product = products.find((p) => p._id.toString() === id.toString());
 
   return (
-    <Container>
+    <Container style={{ minHeight: "80vh" }}>
       <Link className="btn btn-light my-3" to="/">
         Go Back
       </Link>
@@ -43,7 +55,9 @@ const ProductScreen = (props) => {
               ></Rating>
             </ListGroup.Item>
             <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
-            <ListGroup.Item>Description: ${product.description}</ListGroup.Item>
+            <ListGroup.Item>
+              <strong>Description:</strong> {product.description}
+            </ListGroup.Item>
           </ListGroup>
         </Col>
         <Col md={3}>
