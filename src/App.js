@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 
@@ -22,6 +23,13 @@ const App = () => {
         </Route>
         <Route path="/product/:id">
           <ProductScreen></ProductScreen>
+        </Route>
+        <Route path="/cart">
+          <main className="py-3">
+            <Container>
+              <CartScreen></CartScreen>
+            </Container>
+          </main>
         </Route>
       </Switch>
       <Footer></Footer>
