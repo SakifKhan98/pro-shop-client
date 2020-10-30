@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/product/:id">
           <ProductScreen></ProductScreen>
         </Route>
-        <Route path="/cart">
+        <Route path="/cart/:id?">
           <main className="py-3">
             <Container>
               <CartScreen></CartScreen>

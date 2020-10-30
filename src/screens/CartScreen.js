@@ -1,39 +1,3 @@
-// import React, { useEffect } from "react";
-// import {
-//   Button,
-//   Card,
-//   Col,
-//   Form,
-//   Image,
-//   ListGroup,
-//   Row,
-// } from "react-bootstrap";
-// import { useDispatch, useSelector } from "react-redux";
-// import { Link, useHistory, useLocation, useParams } from "react-router-dom";
-// import Message from "../components/Message";
-
-// import { addToCart } from "../actions/cartActions";
-
-// const CartScreen = (props) => {
-//   let { id } = useParams();
-//   const history = useHistory();
-//   const location = useLocation();
-//   const productId = id;
-
-//   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
-//   const dispatch = useDispatch();
-
-//   useEffect(() => {
-//     if (productId) {
-//       dispatch(addToCart(productId, qty));
-//     }
-//   }, [dispatch, productId, qty]);
-
-//   return <div>CART</div>;
-// };
-
-// export default CartScreen;
-
 import React, { useEffect } from "react";
 import { Link, useHistory, useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
